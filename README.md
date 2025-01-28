@@ -1,2 +1,2 @@
-# hi-data-envelop-editor
-Huygens Data Envelop editor
+# hi-ddb-stalling-editor
+Huygens Stalling editor
