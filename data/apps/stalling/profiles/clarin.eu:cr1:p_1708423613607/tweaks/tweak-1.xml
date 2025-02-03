@@ -977,13 +977,13 @@
             <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
             <Element name="project" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
             <Element name="stalling"><!--cues--></Element>
-            <Component name="Links">
+            <Component name="Link">
                 <Element name="link"><!--cues--></Element>
                 <Element name="type">
                     
                 </Element>
             </Component>
-            <Component name="Notes">
+            <Component name="Note">
                 <Element name="note" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
                 <Element name="type">
                     
@@ -999,6 +999,23 @@
                     <Element name="Telephone"><!--cues--></Element>
                     <Element name="Website"><!--cues--></Element>
                 </Component>
+            </Component>
+            <Component name="Directory">
+                <Element xmlns:cue="http://www.clarin.eu/cmd/cues/1" name="directory"/>
+                <Element name="level">
+                    <ValueScheme>
+                        <Vocabulary>
+                            <enumeration>
+                                <item ConceptLink="" AppInfo="">non sensitive - open</item>
+                                <item ConceptLink="" AppInfo="">non sensitive - restricted</item>
+                                <item ConceptLink="" AppInfo="">ethically sensitive - open</item>
+                                <item ConceptLink="" AppInfo="">ethically sensitive - restricted</item>
+                                <item ConceptLink="" AppInfo="">legally sensitive - restricted</item>
+                            </enumeration>
+                        </Vocabulary>
+                    </ValueScheme>
+                </Element>
+                <Element name="description" cue:inputWidth="60" cue:inputHeight="8"/>
             </Component>
         </Component>
     </Component>
