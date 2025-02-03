@@ -8,7 +8,7 @@
     </Header>
     <Component name="DataEnvelope">
         <Element name="ID"><!--cues--></Element>
-        <Element name="status"><!--cues--></Element>
+        <Element name="status" cue:class="status" cue:readonly="yes"><!--cues--></Element>
         <Component name="BasicInformation">
             <clariah:label xml:lang="en">Level 1: Basic Information </clariah:label>
             <clariah:explanation>Basic Information on Data-Envelope</clariah:explanation>
