@@ -14,6 +14,8 @@ style="data-envelopes.css"
 [app.prof.envelop]
 prof="clarin.eu:cr1:p_1708423613607"
 title="string(/cmd:CMD/cmd:Components/cmd:DataEnvelope/cmd:BasicInformation/(cmd:title[@xml:lang='en'],cmd:title)[1])"
+entity="/cmd:CMD/cmd:Components/cmd:DataEnvelope[cmd:status='under construction']"
+lookup="//cmd:DataEnvelope/cmd:ID"
 label_en="envelop"
 label_plural_en="envelopes"
 
