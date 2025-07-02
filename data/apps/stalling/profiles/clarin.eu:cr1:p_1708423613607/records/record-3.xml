@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><cmd:CMD xmlns:cmd="http://www.clarin.eu/cmd/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.clarin.eu/cmd/1 https://infra.clarin.eu/CMDI/1.x/xsd/cmd-envelop.xsd http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1708423613607 http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.2/profiles/clarin.eu:cr1:p_1708423613607/xsd" CMDVersion="1.2">
+   <cmd:Header>
+      <cmd:MdCreator>test</cmd:MdCreator>
+      <cmd:MdCreationDate xmlns:clariah="http://www.clariah.eu/" clariah:epoch="1751459240">2025-07-02</cmd:MdCreationDate>
+      <cmd:MdSelfLink>unl://3</cmd:MdSelfLink>
+      <cmd:MdProfile>clarin.eu:cr1:p_1708423613607</cmd:MdProfile>
+      <cmd:MdCollectionDisplayName/>
+   </cmd:Header>
+   <cmd:Resources>
+      <cmd:ResourceProxyList/>
+      <cmd:JournalFileProxyList/>
+      <cmd:ResourceRelationList/>
+      <cmd:IsPartOfList/>
+   </cmd:Resources>
+   <cmd:Components>
+      <cmdp:DataEnvelope xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1708423613607">
+         <cmdp:institute>hi</cmdp:institute>
+         <cmdp:ID>hi-test</cmdp:ID>
+         <cmdp:status>publish</cmdp:status>
+         <cmdp:BasicInformation>
+            <cmdp:title xml:lang="en">test</cmdp:title>
+            <cmdp:ContactDetails>
+               <cmdp:name>test</cmdp:name>
+               <cmdp:email>test@example.com</cmdp:email>
+            </cmdp:ContactDetails>
+            <cmdp:Dates>
+               <cmdp:creationDateFrom>2025-07-02</cmdp:creationDateFrom>
+            </cmdp:Dates>
+            <cmdp:authorDataEnvelope>
+               <cmdp:name>test</cmdp:name>
+            </cmdp:authorDataEnvelope>
+         </cmdp:BasicInformation>
+         <cmdp:BasicMetadata>
+            <cmdp:Snapshot>
+               <cmdp:title xml:lang="en">test</cmdp:title>
+               <cmdp:version>0.0</cmdp:version>
+               <cmdp:description>testerdetest</cmdp:description>
+               <cmdp:topic>test</cmdp:topic>
+               <cmdp:languages>test</cmdp:languages>
+               <cmdp:GeographicalCoverage>test</cmdp:GeographicalCoverage>
+            </cmdp:Snapshot>
+            <cmdp:CreatorsContributors>
+               <cmdp:Creators>
+                  <cmdp:Name>test</cmdp:Name>
+               </cmdp:Creators>
+            </cmdp:CreatorsContributors>
+            <cmdp:versionMaintenance>
+               <cmdp:version>
+                  <cmdp:currentVersion>0.0</cmdp:currentVersion>
+               </cmdp:version>
+            </cmdp:versionMaintenance>
+         </cmdp:BasicMetadata>
+         <cmdp:Data>
+            <cmdp:DataResourceDescription>
+               <cmdp:nameOfResource>test</cmdp:nameOfResource>
+               <cmdp:Description>testerdetest</cmdp:Description>
+            </cmdp:DataResourceDescription>
+            <cmdp:socialImpact>
+               <cmdp:safety>
+                  <cmdp:disclaimer>Not sure</cmdp:disclaimer>
+               </cmdp:safety>
+               <cmdp:confidentiality>
+                  <cmdp:confidentialityBin>No</cmdp:confidentialityBin>
+               </cmdp:confidentiality>
+               <cmdp:biases>
+                  <cmdp:sensAttributes>
+                     <cmdp:sensitiveAttribute>None</cmdp:sensitiveAttribute>
+                  </cmdp:sensAttributes>
+               </cmdp:biases>
+               <cmdp:ethicalReview>
+                  <cmdp:review>No</cmdp:review>
+               </cmdp:ethicalReview>
+            </cmdp:socialImpact>
+            <cmdp:dataProvenance>
+               <cmdp:Name>test</cmdp:Name>
+               <cmdp:description>testerdetest</cmdp:description>
+            </cmdp:dataProvenance>
+         </cmdp:Data>
+         <cmdp:Uses>
+            <cmdp:UseWithOtherData>
+               <cmdp:SafetyLevel>Safe to use with other data</cmdp:SafetyLevel>
+            </cmdp:UseWithOtherData>
+         </cmdp:Uses>
+         <cmdp:HumanPerspective>
+            <cmdp:HumanAnnotators>
+               <cmdp:annotatorDescription>test</cmdp:annotatorDescription>
+            </cmdp:HumanAnnotators>
+         </cmdp:HumanPerspective>
+      </cmdp:DataEnvelope>
+   </cmd:Components>
+</cmd:CMD>
