@@ -7,3 +7,6 @@ config.xml
 /data/backup
 htp
 htp.test
+/data/apps/stalling/trace
+/data/apps/stalling/profiles/clarin.eu:cr1:p_1708423613607/records/history
+/data/apps/stalling/profiles/clarin.eu:cr1:p_1708423613607/records/history

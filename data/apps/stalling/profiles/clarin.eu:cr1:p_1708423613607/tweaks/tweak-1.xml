@@ -7,8 +7,12 @@
         <Status>development</Status>
     </Header>
     <Component name="DataEnvelope">
-        <Element name="ID"><!--cues--></Element>
-        <Element name="status" cue:class="status" cue:readonly="yes"><!--cues--></Element>
+        <Element name="institute" cue:once="yes"/>
+        <Element name="ID" cue:post-xpath-value="concat(normalize-space(ancestor-or-self::*:DataEnvelope/*:institute),'-',lower-case(replace(replace(ancestor-or-self::*:DataEnvelope/*:BasicInformation/*:title,'(.*?)[vV]ersion.*','$1'),'[^\p{Lu}]','')))" cue:readonly="yes"/>
+        <Element name="parent" CardinalityMin="0" CardinalityMax="1"  cue:class="skosType">
+            <clariah:autoCompleteURI>/app/stalling/profile/clarin.eu:cr1:p_1708423613607/entity/envelop</clariah:autoCompleteURI>
+        </Element>
+        <Element name="status" cue:class="status" cue:readonly="yes"/>
         <Component name="BasicInformation">
             <clariah:label xml:lang="en">Level 1: Basic Information </clariah:label>
             <clariah:explanation>Basic Information on Data-Envelope</clariah:explanation>
@@ -74,7 +78,7 @@
             <clariah:label xml:lang="en">Level 2: Basic Metadata</clariah:label>
             <Component name="Snapshot">
                 <clariah:label xml:lang="en">2.1 Snapshot</clariah:label>
-                <Element name="title">
+                <Element name="title" cue:validation_profile="RDM" cue:validation_cardinality="1" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Dataset Title</clariah:label>
                     <!--cues-->
                 </Element>
@@ -82,12 +86,12 @@
                     <clariah:label xml:lang="en">Version</clariah:label>
                     <!--cues-->
                 </Element>
-                <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
+                <Element name="description" cue:inputWidth="60" cue:inputHeight="8" cue:validation_profile="RDM" cue:validation_cardinality="1" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Description</clariah:label>
                     <clariah:explanation>Provide a free text account of the dataset or resource (limit 200 words). Include information about the content and topic of the data, sources and motivations for dataset creation.</clariah:explanation>
                     <!--cues-->
                 </Element>
-                <Element name="genre" cue:class="skosType">
+                <Element name="genre" cue:class="skosType" cue:validation_profile="RDM" cue:validation_cardinality="*" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Genre</clariah:label>
                     <clariah:explanation>Choose one or more of the following genres that apply to the dataset/resources: </clariah:explanation>
                     <clariah:autoCompleteURI>/proxy/skosmos/sd/ineo-informationtypes</clariah:autoCompleteURI>
@@ -116,7 +120,7 @@
                     <!--cues-->
                 </Element>
                 <Element name="languageOther"><!--cues--></Element>
-                <Element name="GeographicalCoverage">
+                <Element name="GeographicalCoverage" cue:validation_profile="RDM" cue:validation_cardinality="?" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Geographical Coverage</clariah:label>
                     <clariah:explanation>This refers to the geographical area pertaining to the datasets. Choose one or more of the following geographies that apply to the dataset/resource:</clariah:explanation>
                     <!--cues-->
@@ -125,7 +129,7 @@
                     <clariah:label xml:lang="en">Other Geographical Coverage</clariah:label>
                     <!--cues-->
                 </Element>
-                <Component name="TemporalCoverage">
+                <Component name="TemporalCoverage" cue:validation_profile="RDM" cue:validation_cardinality="?" cue:validation-phase="ingest">
                     <Element name="yearFrom">
                         <clariah:label xml:lang="en">Temporal Coverage Start Date</clariah:label>
                         <clariah:explanation>Provide start year of temporal scope of the dataset </clariah:explanation>
@@ -148,7 +152,7 @@
                     </Element>
                 </Component>
             </Component>
-            <Component name="Dates">
+            <Component name="Dates" cue:validation_profile="RDM" cue:validation_cardinality="?" cue:validation-phase="ingest">
                 <clariah:label xml:lang="en">2.2 Dates</clariah:label>
                 <Element name="dateFrom"><!--cues--></Element>
                 <Element name="dateTo"><!--cues--></Element>
@@ -161,7 +165,7 @@
             <Component name="CreatorsContributors">
                 <clariah:label xml:lang="en">2.3 Creators and Contributors </clariah:label>
                 <clariah:explanation>Specify the individuals or organizations that created, contributed to, and are sharing the dataset. This information is essential in identifying the dataset's provenance.</clariah:explanation>
-                <Component name="publishingOrganisation">
+                <Component name="publishingOrganisation" cue:validation_profile="RDM" cue:validation_cardinality="+" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Publishing Organisation</clariah:label>
                     <clariah:explanation>Provide information for each publishing organisation</clariah:explanation>
                     <Element name="Name">
@@ -185,7 +189,7 @@
                         <!--cues-->
                     </Element>
                 </Component>
-                <Component name="Creators">
+                <Component name="Creators" cue:validation_profile="RDM" cue:validation_cardinality="+" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Creators</clariah:label>
                     <clariah:explanation>Provide the following information for each creator of the dataset.</clariah:explanation>
                     <Element name="Name"><!--cues--></Element>
@@ -210,7 +214,7 @@
                         <!--cues-->
                     </Element>
                 </Component>
-                <Component name="contributors">
+                <Component name="contributors" cue:validation_profile="RDM" cue:validation_cardinality="*" cue:validation-phase="ingest">
                     <Element name="name"><!--cues--></Element>
                     <Element name="organisation"><!--cues--></Element>
                     <Element name="descriptionContribution"><!--cues--></Element>
@@ -237,7 +241,7 @@
             </Component>
             <Component name="distribution">
                 <clariah:label xml:lang="en">2.4 Distribution</clariah:label>
-                <Element name="datasetlink">
+                <Element name="datasetlink" cue:validation_profile="RDM" cue:validation_cardinality="1" cue:validation-phase="archived">
                     <clariah:label xml:lang="en">Dataset Link </clariah:label>
                     <clariah:explanation>For instance its DOI, Handle, or ARK</clariah:explanation>
                     <!--cues-->
@@ -273,7 +277,7 @@
                     </Element>
                 </Component>
             </Component>
-            <Component name="accessLicenses">
+            <Component name="accessLicenses" cue:validation_profile="RDM" cue:validation_cardinality="1" cue:validation-phase="ingest">
                 <clariah:label xml:lang="en">2.5 Licenses and Accesses</clariah:label>
                 <clariah:explanation>Specify the license(s) and access levels under which the dataset is shared. This information is crucial in determining the appropriate re-use of datasets and access information.</clariah:explanation>
                 <Component name="licensingInformation">
@@ -289,7 +293,7 @@
                         <!--cues-->
                     </Element>
                 </Component>
-                <Component name="access">
+                <Component name="access" cue:validation_profile="RDM" cue:validation_cardinality="1" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Access </clariah:label>
                     <clariah:explanation>This section details access rights for the dataset, indicating if it is open to all users or restricted to authorized individuals. It also specifies whether access is available anonymously or requires registration.</clariah:explanation>
                     <Element name="accessLevel">
@@ -405,7 +409,7 @@
                     <clariah:explanation>Provide resource url</clariah:explanation>
                     <!--cues-->
                 </Element>
-                <Element name="format">
+                <Element name="format" cue:validation_profile="RDM" cue:validation_cardinality="1" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Format</clariah:label>
                     <clariah:explanation>Provide file extension for resource (such as csv, json, xls):</clariah:explanation>
                     <!--cues-->
@@ -420,7 +424,7 @@
                     <clariah:explanation>Provide date of creation:</clariah:explanation>
                     <!--cues-->
                 </Element>
-                <Element name="language">
+                <Element name="language" cue:validation_profile="RDM" cue:validation_cardinality="*" cue:validation-phase="ingest">
                     <clariah:label xml:lang="en">Language(s)</clariah:label>
                     <clariah:explanation>provide language used in the dataset:</clariah:explanation>
                     <!--cues-->
@@ -545,7 +549,7 @@
                     <!--cues-->
                 </Element>
             </Component>
-            <Component name="externalResources">
+            <Component name="externalResources" cue:validation_profile="RDM" cue:validation_cardinality="*" cue:validation-phase="ingest">
                 <clariah:label xml:lang="en">3.5 External Resources</clariah:label>
                 <Element name="resources">
                     <clariah:label xml:lang="en">Resources</clariah:label>
@@ -573,7 +577,7 @@
                     <Element name="metric"><!--cues--></Element>
                 </Component>
             </Component>
-            <Component name="socialImpact">
+            <Component name="socialImpact" cue:validation_profile="RDM" cue:validation_cardinality="*" cue:validation-phase="ingest">
                 <clariah:label xml:lang="en">3.7 Social Impact, Sensitivity, and Biases</clariah:label>
                 <Component name="safety">
                     <clariah:label xml:lang="en">Safety Consideration</clariah:label>
@@ -655,7 +659,7 @@
                     </Component>
                 </Component>
             </Component>
-            <Component name="dataProvenance">
+            <Component name="dataProvenance" cue:validation_profile="RDM" cue:validation_cardinality="?" cue:validation-phase="ingest">
                 <clariah:label xml:lang="en">3.8 Data Provenance</clariah:label>
                 <clariah:explanation>For every source used to create this resource, provide the following information:</clariah:explanation>
                 <Element name="Name"><!--cues--></Element>

@@ -7,7 +7,20 @@
         <Status>development</Status>
     </Header>
     <Component name="DataEnvelope" CardinalityMin="1" CardinalityMax="1">
+        <Element name="institute" CardinalityMin="1" CardinalityMax="1">
+            <ValueScheme>
+                <Vocabulary>
+                    <enumeration>
+                        <item ConceptLink="" AppInfo="Huygens">hi</item>
+                        <item ConceptLink="" AppInfo="IISG">iish</item>
+                        <item ConceptLink="" AppInfo="Meertens">mi</item>
+                        <item ConceptLink="" AppInfo="NIOD">niod</item>
+                    </enumeration>
+                </Vocabulary>
+            </ValueScheme>
+        </Element>
         <Element name="ID" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+        <Element name="parent" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
         <Element name="status" CardinalityMin="1" CardinalityMax="1">
             <ValueScheme>
                 <Vocabulary>

@@ -37,3 +37,10 @@ xpath="string(/cmd:CMD/cmd:Components/cmdp:DataEnvelope/cmdp:status)"
 label="Status"
 sort="true"
 filter="'select'"
+
+[app.hooks.action.ingest]
+level="rec"
+enable="/*:CMD/*:Components/*:DataEnvelope/*:status='publish'"
+label="ingest"
+endpoint="ingest"
+hook="ingest"
