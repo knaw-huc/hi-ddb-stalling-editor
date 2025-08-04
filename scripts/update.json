@@ -1,0 +1,501 @@
+{
+    "prof": "clarin.eu:cr1:p_1708423613607",
+    "record": [
+        {
+            "name": "DataEnvelope",
+            "type": "component",
+            "sortOrder": 0,
+            "content": [
+                {
+                    "name": "institute",
+                    "type": "element",
+                    "sortOrder": "1",
+                    "content": [
+                        {
+                            "value": "hi",
+                            "attributes": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "ID",
+                    "type": "element",
+                    "sortOrder": "2",
+                    "content": [
+                        {
+                            "value": "NL-AsdHI-APZH updated",
+                            "attributes": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "status",
+                    "type": "element",
+                    "sortOrder": "4",
+                    "content": [
+                        {
+                            "value": "under construction",
+                            "attributes": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "BasicInformation",
+                    "type": "component",
+                    "sortOrder": "5",
+                    "content": [
+                        {
+                            "name": "title",
+                            "type": "element",
+                            "sortOrder": "1",
+                            "content": [
+                                {
+                                    "value": "Acta der Particuliere synoden van Zuid-Holland 1621-1700 Version-1 Data-Envelope Version-1",
+                                    "attributes": {"lang": "en"}
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "BasicMetadata",
+                    "type": "component",
+                    "sortOrder": "6",
+                    "content": [
+                        {
+                            "name": "Snapshot",
+                            "type": "component",
+                            "sortOrder": "1",
+                            "content": [
+                                {
+                                    "name": "title",
+                                    "type": "element",
+                                    "sortOrder": "1",
+                                    "content": [
+                                        {
+                                            "value": "Acta der Particuliere synoden van Zuid-Holland 1621-1700",
+                                            "attributes": {"lang": "nl"}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "description",
+                                    "type": "element",
+                                    "sortOrder": "3",
+                                    "content": [
+                                        {
+                                            "value": " Na 1619 werden geen nationale synoden meer gehouden. De \"particuliere\" synoden in de provincies wonnen daardoor aan belang. Ze hielden ook onderling contact. De Particuliere Synode van Zuid-Holland nam een centrale plaats in, mede vanwege de contacten met de Haagse overheden. Het gebied van deze synode besloeg het huidige Zuid-Holland, het noordelijke deel van Brabant en de \"Oranje\"-classes Breda en Buren.\n\nDe Particuliere Synode kwam eenmaal per jaar bijeen. Men behandelde problemen van theologische en praktische aard, maar ook onenigheden die plaatselijk niet konden worden opgelost.\n\nDe uitgave biedt een volledige transcriptie van de acta van de Particuliere Synoden van Zuid-Holland, waar nodig aangevuld met de gravamina (bezwaarschriften aan de overheid). Deel I bevat een algemene inleiding. De delen II, IV en VI hebben korte inleidingen over onderwerpen, namelijk de verhouding tussen kerk en overheid, de politieke strijd omtrent de inhoud van het gebed voor de overheid, de hulp aan buitenlandse kerken en de censuur van boeken. In alle delen zijn afzonderlijke indices op persoonsnamen, plaatsnamen en zaken opgenomen.",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "genre",
+                                    "type": "element",
+                                    "sortOrder": "4",
+                                    "content": [
+                                        {
+                                            "value": "Legal cases and case notes",
+                                            "attributes": {"uri": "http://nemo.dcu.gr/index.php?c=3.16"}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "GeographicalCoverage",
+                                    "type": "element",
+                                    "sortOrder": "10",
+                                    "content": [
+                                        {
+                                            "value": "Zuid-Holland",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "TemporalCoverage",
+                                    "type": "component",
+                                    "sortOrder": "12",
+                                    "content": [
+                                        {
+                                            "name": "yearFrom",
+                                            "type": "element",
+                                            "sortOrder": "1",
+                                            "content": [
+                                                {
+                                                    "value": "1621",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "yearTo",
+                                            "type": "element",
+                                            "sortOrder": "2",
+                                            "content": [
+                                                {
+                                                    "value": "1700",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Dates",
+                            "type": "component",
+                            "sortOrder": "2",
+                            "content": [
+                                {
+                                    "name": "datasetPublicationDate",
+                                    "type": "element",
+                                    "sortOrder": "3",
+                                    "content": [
+                                        {
+                                            "value": "2025-07-30",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "CreatorsContributors",
+                            "type": "component",
+                            "sortOrder": "3",
+                            "content": [
+                                {
+                                    "name": "publishingOrganisation",
+                                    "type": "component",
+                                    "sortOrder": "1",
+                                    "content": [
+                                        {
+                                            "name": "Name",
+                                            "type": "element",
+                                            "sortOrder": "1",
+                                            "content": [
+                                                {
+                                                    "value": "Huygens Institute",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "element",
+                                            "sortOrder": "3",
+                                            "content": [
+                                                {
+                                                    "value": "Academic/Research Insitution",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Creators",
+                                    "type": "component",
+                                    "sortOrder": "2",
+                                    "content": [
+                                        {
+                                            "name": "Name",
+                                            "type": "element",
+                                            "sortOrder": "1",
+                                            "content": [
+                                                {
+                                                    "value": "W.P.C. Knuttel",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Role",
+                                            "type": "element",
+                                            "sortOrder": "5",
+                                            "content": [
+                                                {
+                                                    "value": "Writing - review and editing",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "contributors",
+                                    "type": "component",
+                                    "sortOrder": "3",
+                                    "content": [
+                                        {
+                                            "name": "name",
+                                            "type": "element",
+                                            "sortOrder": "1",
+                                            "content": [
+                                                {
+                                                    "value": "W.P.C. Knuttel",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "distribution",
+                            "type": "component",
+                            "sortOrder": "4",
+                            "content": [
+                                {
+                                    "name": "datasetlink",
+                                    "type": "element",
+                                    "sortOrder": "1",
+                                    "content": [
+                                        {
+                                            "value": "TODO: will be created by the e-depot",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "accessLicenses",
+                            "type": "component",
+                            "sortOrder": "5",
+                            "content": [
+                                {
+                                    "name": "licensingInformation",
+                                    "type": "component",
+                                    "sortOrder": "1",
+                                    "content": [
+                                        {
+                                            "name": "url",
+                                            "type": "element",
+                                            "sortOrder": "2",
+                                            "content": [
+                                                {
+                                                    "value": "https://creativecommons.org/licenses/by-sa/4.0/",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "access",
+                                    "type": "component",
+                                    "sortOrder": "2",
+                                    "content": [
+                                        {
+                                            "name": "accessLevel",
+                                            "type": "element",
+                                            "sortOrder": "1",
+                                            "content": [
+                                                {
+                                                    "value": "Open Access",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Data",
+                    "type": "component",
+                    "sortOrder": "7",
+                    "content": [
+                        {
+                            "name": "DataResourceDescription",
+                            "type": "component",
+                            "sortOrder": "1",
+                            "content": [
+                                {
+                                    "name": "format",
+                                    "type": "element",
+                                    "sortOrder": "4",
+                                    "content": [
+                                        {
+                                            "value": "TODO: retrobook archive format",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "language",
+                                    "type": "element",
+                                    "sortOrder": "7",
+                                    "content": [
+                                        {
+                                            "value": "dutch",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "externalResources",
+                            "type": "component",
+                            "sortOrder": "5",
+                            "content": [
+                                {
+                                    "name": "resources",
+                                    "type": "element",
+                                    "sortOrder": "1",
+                                    "content": [
+                                        {
+                                            "value": "No",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "extResources",
+                                    "type": "element",
+                                    "sortOrder": "2",
+                                    "content": [
+                                        {
+                                            "value": "TODO: optional",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "socialImpact",
+                            "type": "component",
+                            "sortOrder": "7",
+                            "content": [
+                                {
+                                    "name": "safety",
+                                    "type": "component",
+                                    "sortOrder": "1",
+                                    "content": [
+                                        {
+                                            "name": "disclaimer",
+                                            "type": "element",
+                                            "sortOrder": "1",
+                                            "content": [
+                                                {
+                                                    "value": "Yes",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "specify",
+                                            "type": "element",
+                                            "sortOrder": "2",
+                                            "content": [
+                                                {
+                                                    "value": "TODO: optional",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "confidentiality",
+                                    "type": "component",
+                                    "sortOrder": "2",
+                                    "content": [
+                                        {
+                                            "name": "confidentialityBin",
+                                            "type": "element",
+                                            "sortOrder": "1",
+                                            "content": [
+                                                {
+                                                    "value": "Yes",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "specify",
+                                            "type": "element",
+                                            "sortOrder": "2",
+                                            "content": [
+                                                {
+                                                    "value": "TODO: optional",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "biases",
+                                    "type": "component",
+                                    "sortOrder": "3",
+                                    "content": [
+                                        {
+                                            "name": "knownBiases",
+                                            "type": "element",
+                                            "sortOrder": "1",
+                                            "content": [
+                                                {
+                                                    "value": "TODO: optional",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "stepsToReduceBias",
+                                            "type": "element",
+                                            "sortOrder": "2",
+                                            "content": [
+                                                {
+                                                    "value": "TODO: optional",
+                                                    "attributes": {}
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "dataProvenance",
+                            "type": "component",
+                            "sortOrder": "8",
+                            "content": [
+                                {
+                                    "name": "Name",
+                                    "type": "element",
+                                    "sortOrder": "1",
+                                    "content": [
+                                        {
+                                            "value": "TODO: optional",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "description",
+                                    "type": "element",
+                                    "sortOrder": "3",
+                                    "content": [
+                                        {
+                                            "value": "TODO: optional",
+                                            "attributes": {}
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "when": "EPOCH"
+}
