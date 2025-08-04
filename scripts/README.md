@@ -37,4 +37,4 @@ $ ./retrieve.sh 14
 
 If you need to find the epoch of a record its in the `clariah:epoch` attribute of the `cmd:MdCreationDate` in the record header.
 
-More info on the API and the setup of the editor see https://github.com/knaw-huc/service-huc-editor
+For more info on the API and the setup of the editor see https://github.com/knaw-huc/service-huc-editor
