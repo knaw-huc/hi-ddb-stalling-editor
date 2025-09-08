@@ -17,3 +17,27 @@ def ingest(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> N
         id = xpproc.evaluate_single("string(/*:CMD/*:Components/*:DataEnvelope/*:ID)")
         res = f"<p>Ingest Data Envelop[{id}]</p>"
     return Response(content=res, media_type="text/html")
+
+def validation(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> None:
+    res = "This will be the response"
+    res = to_validation_report(app,prof)
+    return Response(content=res, media_type="application/xml")
+
+def to_validation_report(app: str,prof: str):
+    with PySaxonProcessor(license=False) as proc:
+        xpproc = proc.new_xpath_processor()
+        xpproc.set_cwd(os.getcwd())
+        xsltproc = proc.new_xslt30_processor()
+        xsltproc.set_cwd(os.getcwd())
+        executable = xsltproc.compile_stylesheet(stylesheet_file=f"{settings.URL_DATA_APPS}/{app}/resources/xslt/validation.xsl")
+        executable.set_parameter("cwd", proc.make_string_value(os.getcwd()))
+        executable.set_parameter("app", proc.make_string_value(app))
+        config_app_file = f"{settings.URL_DATA_APPS}/{app}/config.toml"
+        convert_toml_to_xml(toml_file=config_app_file,xml_file=f"{settings.URL_DATA_APPS}/{app}/config.xml")
+        config = proc.parse_xml(xml_file_name=f"{settings.URL_DATA_APPS}/{app}/config.xml")
+        executable.set_parameter("config", config)
+        tweak = prof_xml(app, prof)
+        tweak = proc.parse_xml(xml_text=tweak)
+        executable.set_parameter("tweak", tweak)
+        null = proc.parse_xml(xml_text="<null/>")
+        return executable.transform_to_string(xdm_node=null)

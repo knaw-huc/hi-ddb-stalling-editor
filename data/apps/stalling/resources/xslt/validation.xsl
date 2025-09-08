@@ -11,7 +11,7 @@
     <xsl:param name="config" select="doc(concat($cwd, '/data/apps/', $app, '/config.xml'))"/>
     
     <xsl:param name="tweakFile" select="'file:/Users/menzowi/Documents/GitHub/hi-ddb-stalling-editor/data/apps/stalling/profiles/clarin.eu:cr1:p_1708423613607/tweaks/tweak-1.xml'"/>
-    <xsl:variable name="tweak" select="document($tweakFile)"/>
+    <xsl:param name="tweak" select="document($tweakFile)"/>
     
     <xsl:param name="prof" select="$tweak/ComponentSpec/Header[1]/ID[1]"/>
     
@@ -73,7 +73,7 @@
                         </xsl:choose>
                     </xsl:for-each>
                 </xsl:variable>
-                <record id="{replace($rec//*:MdSelfLink,'unl://','')}" record="{base-uri($rec)}" profile="{$profile}" phase="{$phase}" status="{if (exists($paths/*[@status='error'])) then ('failed') else ('passed')}">
+                <record nr="{replace($rec//*:MdSelfLink,'unl://','')}" self="{$rec//*:MdSelfLink}" lookup="{/*:CMD/*:Components/*:DataEnvelope/*:ID}" record="{base-uri($rec)}" profile="{$profile}" phase="{$phase}" status="{if (exists($paths/*[@status='error'])) then ('failed') else ('passed')}">
                     <xsl:copy-of select="$paths"/>
                 </record>
             </xsl:for-each>
