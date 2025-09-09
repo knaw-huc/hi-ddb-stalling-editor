@@ -43,6 +43,7 @@
     </xsl:template>
     
     <xsl:template name="main">
+        <xsl:message>DBG:BEGIN[validation]</xsl:message>
         <validation profile="{$profile}" phase="{$phase}">
             <xsl:variable name="recs" select="concat($cwd, '/data/apps/', $app, '/profiles/', $prof, '/records')"/>
             <xsl:for-each select="collection(concat($recs,'?match=record-\d+\.xml&amp;on-error=warning'))">
@@ -78,6 +79,7 @@
                 </record>
             </xsl:for-each>
         </validation>
+        <xsl:message>DBG: END [validation]</xsl:message>
     </xsl:template>
     
 </xsl:stylesheet>

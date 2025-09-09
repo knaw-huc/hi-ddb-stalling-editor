@@ -3,6 +3,7 @@ version: '2'
 services:
   sd-editor:
     image: ghcr.io/knaw-huc/service-huc-editor:2.0-RC9
+    #image: registry.diginfra.net/tsd/huc-editor-services:2.0-RC9-alpha
     environment:
       - BASE_URL=http://localhost:1210
       - CDN_URL=https://alpha-cmdicdn.sd.di.huc.knaw.nl
