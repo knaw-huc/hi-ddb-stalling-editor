@@ -61,7 +61,7 @@
                                 <xsl:choose>
                                     <xsl:when test="count($i) lt 1">
                                         <xsl:message expand-text="yes">DBG: validate[{$p}][{$v/@cardinality}][{count($i)}] failed</xsl:message>
-                                        <path xsl:expand-text="yes" freq="{count($i)}" card="{$v/@cardinality}" path="{$p}" status="{($v/@level,'error')[1]}">{$v}</path>
+                                        <path xsl:expand-text="yes" freq="{count($i)}" card="{$v/@cardinality}" path="{$p}" status="{($v/message.@level,'error')[1]}">{$v/message}</path>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:message expand-text="yes">DBG: validate[{$p}][{$v/@cardinality}][{count($i)}] passed</xsl:message>

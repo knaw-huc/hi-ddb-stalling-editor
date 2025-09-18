@@ -14,7 +14,7 @@ services:
     ports:
       - '1210:1210'
   util-server:
-    image: ghcr.io/knaw-huc/util-server:1.0-rc3
+    image: ghcr.io/knaw-huc/util-server:1.0.rc4
     networks:
       - sd-editor
     ports:
