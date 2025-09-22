@@ -11,10 +11,10 @@
             <ValueScheme>
                 <Vocabulary>
                     <enumeration>
-                        <item ConceptLink="" AppInfo="Huygens">hi</item>
-                        <item ConceptLink="" AppInfo="IISG">iish</item>
-                        <item ConceptLink="" AppInfo="Meertens">mi</item>
-                        <item ConceptLink="" AppInfo="NIOD">niod</item>
+                        <item ConceptLink="" AppInfo="Huygens">NL-AsdHI</item>
+                        <item ConceptLink="" AppInfo="IISG">NL-AsdIISG</item>
+                        <item ConceptLink="" AppInfo="Meertens">NL-AsdMI</item>
+                        <item ConceptLink="" AppInfo="NIOD">NL-AsdNIOD</item>
                     </enumeration>
                 </Vocabulary>
             </ValueScheme>

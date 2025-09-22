@@ -29,6 +29,8 @@
         'http://www.clarin.eu/cmd/'
         else
         concat('http://www.clarin.eu/cmd/1/profiles/', $prof)"/>
+ 
+    <xsl:param name="nr" select="()"/>
     
     <xsl:variable name="NS" as="element()">
         <xsl:element namespace="{$cmd-ns}" name="cmd:ns">
@@ -46,7 +48,7 @@
         <xsl:message>DBG:BEGIN[validation]</xsl:message>
         <validation profile="{$profile}" phase="{$phase}">
             <xsl:variable name="recs" select="concat($cwd, '/data/apps/', $app, '/profiles/', $prof, '/records')"/>
-            <xsl:for-each select="collection(concat($recs,'?match=record-\d+\.xml&amp;on-error=warning'))">
+            <xsl:for-each select="collection(concat($recs,'?match=record-',if (normalize-space($nr)!='') then ($nr) else ('\d+'),'\.xml&amp;on-error=warning'))">
                 <xsl:variable name="rec" select="."/>
                 <xsl:message expand-text="yes">DBG:rec[{base-uri($rec)}]</xsl:message>
                 <xsl:variable name="paths">
@@ -61,7 +63,7 @@
                                 <xsl:choose>
                                     <xsl:when test="count($i) lt 1">
                                         <xsl:message expand-text="yes">DBG: validate[{$p}][{$v/@cardinality}][{count($i)}] failed</xsl:message>
-                                        <path xsl:expand-text="yes" freq="{count($i)}" card="{$v/@cardinality}" path="{$p}" status="{($v/message.@level,'error')[1]}">{$v/message}</path>
+                                        <path xsl:expand-text="yes" freq="{count($i)}" card="{$v/@cardinality}" path="{$p}" status="{($v/message/@level,'error')[1]}">{$v/message}</path>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <xsl:message expand-text="yes">DBG: validate[{$p}][{$v/@cardinality}][{count($i)}] passed</xsl:message>
