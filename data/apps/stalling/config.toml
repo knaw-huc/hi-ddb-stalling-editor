@@ -58,3 +58,9 @@ enable="doc('http://util-server:8000/proxy?url=http://sd-editor:1210/app/stallin
 label="ingest"
 endpoint="ingest"
 hook="ingest"
+
+[app.hooks.action.history]
+level="rec"
+label="history"
+endpoint="history"
+hook="history"

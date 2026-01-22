@@ -1,10 +1,30 @@
 from saxonche import PySaxonProcessor, PyXdmNode
 from src.profiles import prof_xml
-from fastapi import Request, Response, HTTPException
+from fastapi import Request, Response,  HTTPException
+from fastapi.encoders import jsonable_encoder
+from starlette.responses import HTMLResponse,  JSONResponse, RedirectResponse
+from datetime import datetime
+from time import strftime, localtime
+
 import toml
 import os
+import json
+import math
 import logging
-from src.commons import settings, convert_toml_to_xml
+import glob
+import operator
+
+from src.records import rec_history
+
+from src.commons import settings, convert_toml_to_xml, def_user
+# Configure basic logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+# Create a logger instance
+logger = logging.getLogger(__name__)
 
 
 def ingest(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> None:
@@ -22,6 +42,7 @@ def validation(req:Request,action: str, app: str, prof: str, nr: str, user:str) 
     res = "This will be the response"
     res = to_validation_report(app,prof,nr)
     return Response(content=res, media_type="application/xml")
+    
 
 def to_validation_report(app: str,prof: str,nr: str):
     with PySaxonProcessor(license=False) as proc:
@@ -43,3 +64,9 @@ def to_validation_report(app: str,prof: str,nr: str):
             executable.set_parameter("nr", proc.make_string_value(nr)) 
         null = proc.parse_xml(xml_text="<null/>")
         return executable.transform_to_string(xdm_node=null)
+
+# def history(req:Request,action: str, app: str, prof: str, nr: str, user:str) -> None:
+#     logger.debug("History endpoint accessed")
+#     print(user, nr, prof, app, action, req)
+#     return rec_history(app,prof,nr)
+
