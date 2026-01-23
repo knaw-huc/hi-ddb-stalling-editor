@@ -1,0 +1,35 @@
+[default]
+service_name = "huc-editor-service"
+#FastAPI
+fastapi_title = "HuC Editor API Service"
+fastapi_description = ""
+
+def_user="server"
+
+url_base = "@format {env[BASE_URL]}"
+url_clarin_component_registry = "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/%s/xml"
+url_data_apps = "@format ///{env[BASE_DIR]}/data/apps"
+url_cdn = "@jinja {{env['CDN_URL'] or 'https://cmdicdn.sd.di.huc.knaw.nl'}}"
+
+disable_authentication = false
+
+template_prof="clarin.eu:cr1:p_1721373444008"
+
+proxies_dir = "@format {env[BASE_DIR]}/resources/proxies"
+xslt_dir = "@format {env[BASE_DIR]}/resources/xslt"
+templates_dir = "@format {env[BASE_DIR]}/resources/templates"
+static_dir = "@format {env[BASE_DIR]}/resources/static"
+
+log_file = "@format {env[BASE_DIR]}/logs/huc-editor-service.log"
+log_level = 10
+log_format = "%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s"
+
+[default.keycloak]
+    url="http://localhost:9090"
+    realms="huc_editor"
+    client_id="huc-auth"
+
+[development.keycloak]
+        url="https://keycloak.dansdemo.nl"
+        realms="huc_editor"
+        client_id="huc-auth"

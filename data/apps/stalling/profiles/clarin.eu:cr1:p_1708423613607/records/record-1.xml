@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><cmd:CMD xmlns:cmd="http://www.clarin.eu/cmd/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.clarin.eu/cmd/1 https://infra.clarin.eu/CMDI/1.x/xsd/cmd-envelop.xsd http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1708423613607 http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.2/profiles/clarin.eu:cr1:p_1708423613607/xsd" CMDVersion="1.2">
    <cmd:Header>
       <cmd:MdCreator>test</cmd:MdCreator>
-      <cmd:MdCreationDate xmlns:clariah="http://www.clariah.eu/" clariah:epoch="1767952150">2026-01-09</cmd:MdCreationDate>
+      <cmd:MdCreationDate xmlns:clariah="http://www.clariah.eu/" clariah:epoch="1769089875">2026-01-22</cmd:MdCreationDate>
       <cmd:MdSelfLink>unl://1</cmd:MdSelfLink>
       <cmd:MdProfile>clarin.eu:cr1:p_1708423613607</cmd:MdProfile>
       <cmd:MdCollectionDisplayName/>
@@ -15,7 +15,7 @@
    <cmd:Components>
       <cmdp:DataEnvelope xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1708423613607">
          <cmdp:ID>hi-diplo</cmdp:ID>
-         <cmdp:parent>hahahahahahiiiiiiihoooooo</cmdp:parent>
+         <cmdp:parent>Nou ja</cmdp:parent>
          <cmdp:status>under construction</cmdp:status>
          <cmdp:BasicInformation>
             <cmdp:title xml:lang="en">test</cmdp:title>
