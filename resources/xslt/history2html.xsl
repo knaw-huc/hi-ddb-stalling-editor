@@ -43,9 +43,9 @@
                         <h2>Number of versions for record: {$recordnumber}</h2>
                         <p>
                             <strong>Total versions: </strong>
-                            {count(/fn:map/fn:array[@key='history']/fn:map)} </p>
+                            {count(fn:map/fn:array[@key='history']/fn:map)} </p>
                     </div>
-                    <table class="table table-bordered resultTable">
+                    <table id="records-{local-name()}" class="table table-bordered resultTable">
                         <thead>
                             <tr><th>epoch</th><th>dateTime</th><th>user</th><th>detail</th></tr>
                         </thead>
@@ -60,8 +60,8 @@
                 var datatable = new DataTable(document.querySelector('#records-{local-name()}'), {{
                 pageSize: 25,
                 sort: [{string-join(list/(* except ns)/sort,', ')}, true],
-                filters: [{string-join(list/(* except ns)/filter,', ')}, 'select'],
-                filterText: 'Type to filter... ',
+              /*  filters: [{string-join(list/(* except ns)/filter,', ')}, 'select'],
+                filterText: 'Type to filter... ',*/
                 pagingDivSelector: "#paging-records-{local-name()}"}}
                 );
             </script>

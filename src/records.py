@@ -14,12 +14,10 @@ import math
 import glob
 import operator
 
-
-
-
-def rec_html(app,prof,nr):
+def rec_html(app,prof,nr, record_file=''):
     logging.info(f"app[{app}] prof[{prof}] rec[{nr}] get HTML")
-    record_file = f"{settings.URL_DATA_APPS}/{app}/profiles/{prof}/records/record-{nr}.xml"
+    if record_file == '':
+        record_file = f"{settings.URL_DATA_APPS}/{app}/profiles/{prof}/records/record-{nr}.xml"
     with open(record_file, 'r') as file:
         rec = file.read()
         with PySaxonProcessor(license=False) as proc:

@@ -406,7 +406,7 @@ def get_history(request: Request, app: str, nr: str, prof: str | None=None, user
 
 @router.get('/app/{app}/record/{nr}/history/{epoch}')
 @router.get('/app/{app}/profile/{prof}/record/{nr}/history/{epoch}')
-def get_version(request: Request, app: str, nr: str, epoch:str, prof: str | None=None, user: Optional[str] = Depends(get_user_with_app)):
+def get_version(request: Request, app: str, nr: str, epoch:int, prof: str | None=None, user: Optional[str] = Depends(get_user_with_app)):
     # yes it works also http://localhost:1210/app/stalling/profile/clarin.eu:cr1:p_1708423613607/record/3.xml/history/1767225600 with the same extensions to the record number for a correct format
     
     # DONE specifieke versie van een record tonen
@@ -446,15 +446,16 @@ def get_version(request: Request, app: str, nr: str, epoch:str, prof: str | None
     logging.info(f"app[{app}] prof[{prof}] record[{nr}] form[{form}] accept[{request.headers.get("accept", "")}]")
 
 
-    print('History ')
+    print('History')
     # juiste history file bepalen
     data_dict = rec_history(app, prof, nr)
     # data_dict = json.loads(raw_json)
     epochs = [item['epoch'] for item in data_dict['history']]
-    epoch = int(epoch)  # unix timestamp, given in url
+    # epoch = int(epoch)  # unix timestamp, given in url, hoeft niet meer als ik hem in de aanhef declareer als int
     closest_epoch = min(epochs, key=lambda x: abs(x - epoch))
     record_file = f"{settings.URL_DATA_APPS}/{app}/profiles/{prof}/records/history/record-{nr}.{closest_epoch}.xml"
-
+    print("record_file:", record_file)
+    print("request headers:", request.headers.get("accept"))
 
     if not os.path.exists(record_file):
         logging.debug(f"{record_file} doesn't exist")
@@ -489,7 +490,9 @@ def get_version(request: Request, app: str, nr: str, epoch:str, prof: str | None
                 call_record_hook("read_post",app,prof,nr,user)
                 return Response(content=rec, media_type="application/xml")
         elif form == RecForm.html or "text/html" in request.headers.get("accept", ""):
-                html = rec_html(app,prof,nr)
+                print('html verwerking, maar verkeerd record werd opgehaald, rec_html aangepast')
+                html = rec_html(app,prof,nr, record_file) # de html die hier uit komt is de laatste versie, deze is aangepast, extra param record_file?
+                # print("html:", html)
                 call_record_hook("read_post",app,prof,nr,user)
                 return HTMLResponse(content=html)
         # dit misschien een oplossing? Nee misschien moet rec_html aangepast worden voor andere input?
@@ -712,5 +715,6 @@ def get_action(req: Request, app: str, action: str, prof: str | None=None, nr: s
 # test
 @router.get('/app/{app}/medewerker')
 def getMedewerker():
-    medewerker = {"naam": 'Martino'}
+    medewerker = {"naam": 'Maarten'}
+    print(medewerker)
     return medewerker

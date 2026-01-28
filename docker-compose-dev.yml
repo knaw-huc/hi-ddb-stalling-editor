@@ -10,6 +10,14 @@ services:
       - CDN_URL=https://alpha-cmdicdn.sd.di.huc.knaw.nl
     volumes:
       - ./data:/home/huc/huc-editor-service/data
+      - ./src:/home/huc/huc-editor-service/src
+      - ./conf:/home/huc/huc-editor-service/conf
+      - ./logs:/home/huc/huc-editor-service/logs
+      - ./tests:/home/huc/huc-editor-service/tests
+      - ./resources:/home/huc/huc-editor-service/resources
+
+    command: uvicorn src.main:app --host 0.0.0.0 --port 1210 --reload
+
     networks:
       - sd-editor
     ports:
