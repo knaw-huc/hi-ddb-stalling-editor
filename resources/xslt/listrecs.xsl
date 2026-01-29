@@ -105,7 +105,7 @@
                                 <xsl:copy-of select="$NS"/>
                             </xsl:comment>
                             <h2 xsl:expand-text="yes">list of {(./label_en,local-name())[1]} records</h2>
-                            <div class="action_menu">
+                            http://localhost:1210/app/stalling/profile/clarin.eu:cr1:p_1708423613607/record/3/history/1769604182                      <div class="action_menu">
                                 <xsl:for-each select="$config/config/app/hooks/action/*[normalize-space(level)='' or tokenize(level)='prof']">
                                     <xsl:if test="position()=1">
                                         <xsl:text>[ </xsl:text>
