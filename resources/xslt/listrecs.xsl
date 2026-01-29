@@ -233,7 +233,7 @@
                                                         </xsl:when>
                                                         <xsl:otherwise>
                                                             <a title="History" class="myBtn history" href="{$url}/history">
-                                                                <img src="{$base}/static/img/view.png" height="16px" width="16px"/>
+                                                                <img src="{$base}/static/img/history.png" height="16px" width="16px"/>
                                                             </a>
                                                         </xsl:otherwise>
                                                     </xsl:choose>

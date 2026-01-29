@@ -398,6 +398,16 @@ def get_history(request: Request, app: str, nr: str, prof: str | None=None, user
             xsltproc.set_cwd(os.getcwd())
             executable = xsltproc.compile_stylesheet(stylesheet_file=f"{settings.xslt_dir}/history2html.xsl")
             executable.set_parameter("js-doc", proc.make_string_value(jsonstring))
+
+
+            executable.set_parameter("cwd", proc.make_string_value(os.getcwd()))
+            executable.set_parameter("base", proc.make_string_value(settings.url_base))
+            convert_toml_to_xml(f"{settings.URL_DATA_APPS}/{app}/config.toml",f"{settings.URL_DATA_APPS}/{app}/config.xml")
+            config = proc.parse_xml(xml_file_name=f"{settings.URL_DATA_APPS}/{app}/config.xml")
+            executable.set_parameter("config", config)
+            executable.set_parameter("app", proc.make_string_value(app))
+
+            
             result = executable.call_template_returning_string("main")
             return HTMLResponse(content=result)
     else:

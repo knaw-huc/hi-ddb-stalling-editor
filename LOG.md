@@ -1,6 +1,23 @@
 # LOG
 
 
+## 29-1-2026
+
+- added history icon to listview
+- 
+
+TODO
+
+
+- dropdown bij user
+- filter bij datetime
+- HTML / CMDI / PDF zelfde volgorde
+
+- Previous version remove the first one
+- generieke button pagina terug
+
+
+
 ## 28-1-2026
 
 - bug HTML was not served correctly, adapted rec_html in records.py and protected.py
