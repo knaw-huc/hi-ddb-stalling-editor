@@ -40,7 +40,7 @@
                 </head>
                 <body>
                     <div class="summary">
-                        <h2>Number of versions for record: {$recordnumber}</h2>
+                        <h2>Versions for record: {$recordnumber}</h2>
                         <p>
                             <strong>Total versions: </strong>
                             {count(fn:map/fn:array[@key='history']/fn:map)} </p>
@@ -60,8 +60,8 @@
                 var datatable = new DataTable(document.querySelector('#records-{local-name()}'), {{
                 pageSize: 25,
                 sort: [{string-join(list/(* except ns)/sort,', ')}, true],
-              /*  filters: [{string-join(list/(* except ns)/filter,', ')}, 'select'],
-                filterText: 'Type to filter... ',*/
+                filters: [{string-join(list/(* except ns)/filter,', ')}, 'select'],
+                filterText: 'Type to filter... ',
                 pagingDivSelector: "#paging-records-{local-name()}"}}
                 );
             </script>

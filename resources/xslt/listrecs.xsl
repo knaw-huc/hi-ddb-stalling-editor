@@ -156,7 +156,7 @@
                                             </xsl:choose>
                                         </th>
                                         <th/>
-                                        <!--<th/>-->
+                                        <th/>
                                         <th/>
                                         <th/>
                                         <th/>
@@ -219,6 +219,21 @@
                                                         <xsl:otherwise>
                                                             <a title="Delete" class="myBtn delete" id="myBtn1" onclick="deleteRecord('{$url}');">
                                                                 <img src="{$base}/static/img/bin.png" height="16px" width="16px"/>
+                                                            </a>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                </td>
+                                                <td>
+                                                    <xsl:choose>
+                                                        <xsl:when test="($config/config/app/access/read,'any')[1]='owner' and $user!=$owner">
+                                                            <xsl:text>&#160;</xsl:text>
+                                                        </xsl:when>
+                                                        <xsl:when test="($config/config/app/access/read,'any')[1]='user' and $user='anonymous'">
+                                                            <xsl:text>&#160;</xsl:text>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <a title="History" class="myBtn history" href="{$url}/history">
+                                                                <img src="{$base}/static/img/view.png" height="16px" width="16px"/>
                                                             </a>
                                                         </xsl:otherwise>
                                                     </xsl:choose>

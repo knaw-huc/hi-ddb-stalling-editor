@@ -59,8 +59,3 @@ label="ingest"
 endpoint="ingest"
 hook="ingest"
 
-[app.hooks.action.history]
-level="rec"
-label="history"
-endpoint="history"
-hook="history"
