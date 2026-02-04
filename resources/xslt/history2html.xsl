@@ -43,23 +43,30 @@
                     
                     
                 </head>
-                <h1>{$app}</h1>
                 <body>
-                    <div class="summary">
-                        <h2>Previous versions for record: {$recordnumber}</h2>
-                        <p>
-                            <strong>Total versions: </strong>
-                            {count(fn:map/fn:array[@key='history']/fn:map)} </p>
+                    <div id="wrapper">
+                        <div id="header">{$config/config/app/title}</div>
+                        <div id="user"/>
+                        <div id="homeBtn" titel="back" onclick="window.history.back()" onkeydown="if(event.key==='Enter'||event.key===' '){{event.preventDefault(); window.history.back();}}" role="button" tabindex="0" />
+                        
+                        <div id="content">
+                            <div class="summary">
+                                <h2>Previous versions for record: {$recordnumber}</h2>
+                                <p>
+                                    <strong>Total versions: </strong>
+                                    {count(fn:map/fn:array[@key='history']/fn:map)} </p>
+                            </div>
+                            <table id="records-{$recordnumber}" class="table table-bordered resultTable">
+                                <thead>                          
+                                    <tr><th>epoch</th><th>dateTime</th><th>user</th><th>CMDI</th><th>HTML</th><th>PDF</th></tr>
+                                </thead>
+                                <tbody>
+                                    <xsl:apply-templates select="fn:map/fn:array/fn:map"/>
+                                </tbody>    
+                                    
+                            </table>
+                        </div>   
                     </div>
-                    <table id="records-{$recordnumber}" class="table table-bordered resultTable">
-                        <thead>                          
-                            <tr><th>epoch</th><th>dateTime</th><th>user</th><th>CMDI</th><th>HTML</th><th>PDF</th></tr>
-                        </thead>
-                        <tbody>
-                            <xsl:apply-templates select="fn:map/fn:array/fn:map"/>
-                        </tbody>    
-                            
-                    </table>
                 </body>
             </html>
             <script xsl:expand-text="yes">
@@ -72,19 +79,8 @@
                 );
             </script>
             
-            
-          <!--  <script xsl:expand-text="yes">
-                var datatable = new DataTable(document.querySelector('#records-{$recordnumber}'), {{
-                pageSize: 25,
-                sort: [1, 'desc'], 
-                // Index 1 (DateTime) is 'text' (searchable)
-                // Index 2 (User) is 'select' (dropdown)
-                filters: [false, 'text', 'select', false], 
-                filterText: 'Type to filter... ',
-                pagingDivSelector: "#paging-records-{$recordnumber}"
-                }});
-            </script>-->
-            
+
+       
 
             
             

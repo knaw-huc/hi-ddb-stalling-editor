@@ -4,14 +4,15 @@
 ## 4-2-2026
 
 
-
+- home button, tab friendly keyboard friendly enter accessibility
+- design a bit the same for history list
 
 2 problems
 - links to pdf and cmdi SOLVED build up of URL
 - datatable SOLVED hard coding
     - dropdown bij user
     - filter bij datetime
-
+- 
 
 ## 29-1-2026
 
@@ -49,7 +50,7 @@ From the branch dev-history.
 
 The basic image for development is a locally produced image. Burned from within huc-service-editor. 
 
-Most directories are mounnted on the host system to the important directories within the image. 
+Most directories are mounted on the host system to the important directories within the image. 
 An override of the CMD in the service-editor has been made. Hot reloading is now possible. 
 
 Watch it!

@@ -13,6 +13,7 @@ from datetime import datetime
 import math
 import glob
 import operator
+import pprint
 
 def rec_html(app,prof,nr, record_file=''):
     logging.info(f"app[{app}] prof[{prof}] rec[{nr}] get HTML")
@@ -172,6 +173,11 @@ def rec_history(app: str, prof: str, nr: str):
     # https://realpython.com/sort-python-dictionary/
     for ver in hystery:
         res["history"].append(ver)
+
+    print('nr', nr)
+    pprint.pp(res)
+    del res["history"][0]
+    pprint.pp(res)
 
     return res
 
