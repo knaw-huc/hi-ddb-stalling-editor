@@ -1,18 +1,24 @@
 # LOG
 
 
+## 4-2-2026
+
+
+
+
+2 problems
+- links to pdf and cmdi SOLVED build up of URL
+- datatable SOLVED hard coding
+    - dropdown bij user
+    - filter bij datetime
+
+
 ## 29-1-2026
 
 - added history icon to listview
-- 
+- HTML / CMDI / PDF problems with CMDI and 
 
 TODO
-
-
-- dropdown bij user
-- filter bij datetime
-- HTML / CMDI / PDF zelfde volgorde
-
 - Previous version remove the first one
 - generieke button pagina terug
 

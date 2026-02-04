@@ -402,6 +402,8 @@ def get_history(request: Request, app: str, nr: str, prof: str | None=None, user
 
             executable.set_parameter("cwd", proc.make_string_value(os.getcwd()))
             executable.set_parameter("base", proc.make_string_value(settings.url_base))
+            executable.set_parameter("prof", proc.make_string_value(prof))
+
             convert_toml_to_xml(f"{settings.URL_DATA_APPS}/{app}/config.toml",f"{settings.URL_DATA_APPS}/{app}/config.xml")
             config = proc.parse_xml(xml_file_name=f"{settings.URL_DATA_APPS}/{app}/config.xml")
             executable.set_parameter("config", config)
