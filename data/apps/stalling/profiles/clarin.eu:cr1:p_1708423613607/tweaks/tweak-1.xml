@@ -8,7 +8,11 @@
     </Header>
     <Component name="DataEnvelope">
         <Element name="institute" cue:once="yes"/>
-        <Element name="ID" cue:post-xpath-value="concat(normalize-space(ancestor-or-self::*:DataEnvelope/*:institute),'-',lower-case(replace(replace(ancestor-or-self::*:DataEnvelope/*:BasicInformation/*:title,'(.*?)[vV]ersion.*','$1'),'[^\p{Lu}]','')))" cue:readonly="yes"/>
+        <Element name="ID" cue:readonly="yes"
+                 cue:post-xpath-value="let $de := ancestor-or-self::*:DataEnvelope,
+                                           $parent := normalize-space($de/*:parent),
+                                           $prefix := if ($parent != '') then $parent else normalize-space($de/*:institute)
+                                       return concat($prefix, '_', lower-case(replace(replace($de/*:BasicInformation/*:title,'(.*?)[vV]ersion.*','$1'),'[^\p{Lu}]','')))"/>
         <Element name="parent" CardinalityMin="0" CardinalityMax="1"  cue:class="skosType">
             <clariah:autoCompleteURI>/app/stalling/profile/clarin.eu:cr1:p_1708423613607/entity/envelop</clariah:autoCompleteURI>
         </Element>
