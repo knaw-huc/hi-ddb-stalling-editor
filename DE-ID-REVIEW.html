@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data-envelope ID review</title>
+<style>
+:root {
+  --bg: #ffffff; --fg: #1f2328; --muted: #6a737d; --line: #d8dee4; --head: #f3f5f7;
+  --code-bg: #eef1f4; --link: #0b5cad;
+  --breaks: #b42318; --unsure: #a15c00; --fine: #1a7f37;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181d; --fg: #e6e9ec; --muted: #9aa4af; --line: #2d353e; --head: #1c222a;
+    --code-bg: #232b34; --link: #6cb0ff;
+    --breaks: #ff8b7f; --unsure: #f0b44c; --fine: #5fd27d;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 1280px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { font-size: 1.6rem; margin: 0 0 12px; }
+h2 { font-size: 1.15rem; margin: 32px 0 10px; padding-left: 10px; border-left: 4px solid var(--line); }
+h2.breaks { border-left-color: var(--breaks); }
+h2.unsure { border-left-color: var(--unsure); }
+h2.fine { border-left-color: var(--fine); }
+p { max-width: 90ch; color: var(--muted); margin: 0 0 8px; }
+a { color: var(--link); }
+code {
+  font: 0.86em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--code-bg); padding: 1px 5px; border-radius: 4px; overflow-wrap: break-word;
+}
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; min-width: 760px; }
+th, td { text-align: left; vertical-align: top; padding: 7px 10px; border-bottom: 1px solid var(--line); }
+th { background: var(--head); font-weight: 600; position: sticky; top: 0; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: var(--head); }
+td:nth-child(1) { width: 36%; }
+td:nth-child(2) { width: 28%; }
+td.ok { color: var(--fine); font-weight: 600; }
+td.none { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+<h1>Data-envelope ID review</h1>
+<p>The IDs of the records listed in <code>ENTITY-<wbr>PROFILES-<wbr>DISCREPANCY.md</code> of the data-envelope-checker repository (table A, plus the records without an <code>ID</code>), checked against the pattern in that repository&#x27;s README (section &quot;Identifiers and parents&quot;): a parent is <code>&lt;institute&gt;_<wbr>&lt;name&gt;</code> and a child is <code>&lt;parent-<wbr>id&gt;_<wbr>&lt;suffix&gt;</code>, with <code>NL-<wbr>AsdHI</code> as institute. The related parent is the longest existing ID that the child&#x27;s ID starts with, followed by <code>_<wbr></code> (<code>—</code>: none, it is a parent or has no parent part). Sorted alphabetically.</p>
+<h2 class="breaks">Breaks the pattern (36 records)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Data-envelope ID</th><th>Related parent ID</th><th>Pattern issue</th></tr></thead>
+<tbody>
+<tr><td>(no ID, records 96–100)</td><td class="none">—</td><td>no <code>ID</code>: set one, <code>&lt;institute&gt;_<wbr>&lt;name&gt;</code> or <code>&lt;parent-<wbr>id&gt;_<wbr>&lt;suffix&gt;</code></td></tr>
+<tr><td><code>hi-<wbr>diplo</code></td><td class="none">—</td><td>no <code>_<wbr></code>, institute <code>hi</code>: rename <code>NL-<wbr>AsdHI_<wbr>&lt;name&gt;</code></td></tr>
+<tr><td><code>hi-<wbr>rep_<wbr>ent</code></td><td class="none">—</td><td>institute <code>hi-<wbr>rep</code> is not <code>NL-<wbr>AsdHI</code>: rename e.g. <code>NL-<wbr>AsdHI_<wbr>rep_<wbr>ent</code></td></tr>
+<tr><td><code>hi-<wbr>test</code></td><td class="none">—</td><td>no <code>_<wbr></code>, institute <code>hi</code>: rename <code>NL-<wbr>AsdHI_<wbr>&lt;name&gt;</code></td></tr>
+<tr><td><code>NL-<wbr>Asd_<wbr>bronnenpublicaties_<wbr>capaccini</code></td><td class="none">—</td><td>institute <code>NL-<wbr>Asd</code> is a typo: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>capaccini</code></td></tr>
+<tr><td><code>NL-<wbr>Asd_<wbr>HI_<wbr>bronnenpublicaties_<wbr>diarium-<wbr>alting</code></td><td class="none">—</td><td>institute split by <code>_<wbr></code> (<code>NL-<wbr>Asd_<wbr>HI</code>): rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>diarium-<wbr>alting</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI-<wbr>APZH</code></td><td class="none">—</td><td>no <code>_<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>APZH</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI-<wbr>bdvcvdev</code></td><td class="none">—</td><td>no <code>_<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bdvcvdev</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI-<wbr>dhbvdev</code></td><td class="none">—</td><td>no <code>_<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>dhbvdev</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI-<wbr>hthvdev</code></td><td class="none">—</td><td>no <code>_<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>hthvdev</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI-<wbr>rmvdev</code></td><td class="none">—</td><td>no <code>_<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>rmvdev</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh-<wbr>1-<wbr>ks3</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh_<wbr>1-<wbr>ks3</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh-<wbr>2-<wbr>ks5</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh_<wbr>2-<wbr>ks5</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh-<wbr>3-<wbr>ks8</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh_<wbr>3-<wbr>ks8</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh-<wbr>4-<wbr>ks11</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh_<wbr>4-<wbr>ks11</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh-<wbr>5-<wbr>ks15</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh_<wbr>5-<wbr>ks15</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh-<wbr>6-<wbr>ks16</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh_<wbr>6-<wbr>ks16</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken-<wbr>ks81</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken_<wbr>ks81</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken-<wbr>ks82</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken_<wbr>ks82</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken-<wbr>ks83</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken_<wbr>ks83</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken-<wbr>ks84</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken_<wbr>ks84</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>relazioni-<wbr>veneziane-<wbr>gs7</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>relazioni-<wbr>veneziane</code></td><td>child built with <code>-<wbr></code>: rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>relazioni-<wbr>veneziane_<wbr>gs7</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>diplo</code> (7 records, 74–80)</td><td class="none">—</td><td>same <code>ID</code> on 7 records: make each unique; the <code>institute</code> field holds the likely intended ID (<code>NLAsd-<wbr>HI_<wbr>test-<wbr>07</code>, …)</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>republic/data/republic_<wbr>annotations</code></td><td class="none">—</td><td><code>/</code> is not allowed: use <code>_<wbr></code>, e.g. <code>NL-<wbr>AsdHI_<wbr>republic_<wbr>annotations</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>republic/data/republic_<wbr>paragraphs</code></td><td class="none">—</td><td><code>/</code> is not allowed: use <code>_<wbr></code>, e.g. <code>NL-<wbr>AsdHI_<wbr>republic_<wbr>paragraphs</code></td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>republic/data/republic_<wbr>print</code></td><td class="none">—</td><td><code>/</code> is not allowed: use <code>_<wbr></code>, e.g. <code>NL-<wbr>AsdHI_<wbr>republic_<wbr>print</code></td></tr>
+</tbody>
+</table></div>
+<h2 class="unsure">Unsure (8 records)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Data-envelope ID</th><th>Related parent ID</th><th>Pattern issue</th></tr></thead>
+<tbody>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>aaaaaaaaaaaaaaaa_<wbr>bbbbbbbbbbbbbbbbbbbbbbb_<wbr>bronnenpublicaties_<wbr>actazh</code></td><td><code>NL-<wbr>AsdHI_<wbr>aaaaaaaaaaaaaaaa_<wbr>bbbbbbbbbbbbbbbbbbbbbbb</code> (missing)</td><td>unsure: reads as a child of a parent that doesn&#x27;t exist; if it is a test record, delete it, else create that parent first</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>acta-<wbr>london</code></td><td class="none">—</td><td>unsure: hyphen in the name, probably a plain name; ok if intended</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>Archiefgids-<wbr>gelre</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>Archiefgids</code> (missing)</td><td>unsure: <code>-<wbr></code> may be the legacy child delimiter; if so create the parent and rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>Archiefgids_<wbr>gelre</code>, else ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>Archiefgids-<wbr>overheid</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>Archiefgids</code> (missing)</td><td>unsure: <code>-<wbr></code> may be the legacy child delimiter; if so create the parent and rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>Archiefgids_<wbr>overheid</code>, else ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken-<wbr>midden-<wbr>molukken</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken</code> (missing)</td><td>unsure: <code>-<wbr></code> may be the legacy child delimiter; if so create the parent and rename <code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>MiddenMolukken_<wbr>midden-<wbr>molukken</code>, else ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>relazioni-<wbr>veneziane</code></td><td class="none">—</td><td>unsure: hyphen in the name, probably a plain name; ok if intended</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>vroedschap-<wbr>amsterdam</code></td><td class="none">—</td><td>unsure: hyphen in the name, probably a plain name; ok if intended</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>republic-<wbr>WIP</code></td><td class="none">—</td><td>unsure: hyphen in the name, probably a plain name; ok if intended</td></tr>
+</tbody>
+</table></div>
+<h2 class="fine">Fine (30 records)</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Data-envelope ID</th><th>Related parent ID</th><th>Pattern issue</th></tr></thead>
+<tbody>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>actazh</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>AFC</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>archangel</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>cuper</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>falck</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>iersekeroord</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>inboedelsoranje</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>kloosterrade</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>lidt</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>lidt_<wbr>ks95</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>lidt</code></td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>lidt_<wbr>ks96</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>lidt</code></td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>plott</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>schouburg</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>slingelandt</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>snouck</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>snouck_<wbr>1</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>snouck</code></td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>snouck_<wbr>2</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>snouck</code></td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>snouck_<wbr>3</code></td><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>snouck</code></td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>wenen</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>witsen</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>bronnenpublicaties_<wbr>zending</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>portals_<wbr>bpn</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>teksteditie_<wbr>brievencorrespondenten</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>teksteditie_<wbr>lennep</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>teksteditie_<wbr>pierson</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>teksteditie_<wbr>rijmkroniek</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>teksteditie_<wbr>walewein</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>teksteditie_<wbr>ystroom</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>test</code></td><td class="none">—</td><td class="ok">ok</td></tr>
+<tr><td><code>NL-<wbr>AsdHI_<wbr>test_<wbr>07</code></td><td><code>NL-<wbr>AsdHI_<wbr>test</code></td><td class="ok">ok</td></tr>
+</tbody>
+</table></div>
+</main>
+</body>
+</html>
