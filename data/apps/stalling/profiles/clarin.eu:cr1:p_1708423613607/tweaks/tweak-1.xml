@@ -8,7 +8,7 @@
     </Header>
     <Component name="DataEnvelope">
         <Element name="institute" cue:once="yes"/>
-        <Element name="ID" cue:readonly="yes"
+        <Element name="ID"
                  cue:post-xpath-value="let $de := ancestor-or-self::*:DataEnvelope,
                                            $parent := normalize-space($de/*:parent),
                                            $prefix := if ($parent != '') then $parent else normalize-space($de/*:institute)
